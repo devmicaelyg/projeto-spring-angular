@@ -1,0 +1,13 @@
+.botao {
+    color: white;
+    width: 180px;
+    height: 116px;
+    border-radius: 3%;
+    text-align: center;
+    font-weight: bold;
+    padding: 2px;
+}
+
+#divCliente {
+    background-color: darkorange;
+}

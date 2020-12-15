@@ -1,0 +1,34 @@
+/* #layoutAuthentication {
+    background-image: url('../../assets/fundo.jpg');
+} */
+
+.cardLogin {
+    max-width: 37% !important;
+    margin-top: 7.5%;
+}
+
+.fundo img {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.card-header {
+    background-color: #343a40;
+    color: white;
+}
+
+.card-footer {
+    background-color: #343a40;
+}
+
+.card-footer a {
+    color: white;
+}
+
+.btn-enviar button {
+    background-color: #cecece;
+    color: #343a40;
+    border: #343a40;
+    margin-left: 136px;
+    width: 102px;
+}

@@ -1,0 +1,74 @@
+<h1 class="mt-12 tituloPagina">
+    Listagem de Serviços</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Consulta</li>
+</ol>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-success" role="alert" *ngIf="success == true">
+                Serviço deletado com sucesso!
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <button class="btn btn-warning" [routerLink]="['/servicos/form']">
+                <i class="fa fa-plus"></i> Novo
+            </button>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-condensed table-hover">
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>Cliente</td>
+                        <td>Descricao</td>
+                        <td>Valor</td>
+                        <td>Data Cadastro</td>
+                        <td>Ações</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let servico of servicos">
+                        <td>{{ servico.id }}</td>
+                        <td>{{ servico.cliente.nome }}</td>
+                        <td>{{ servico.descricao }}</td>
+                        <td>{{ servico.valor | currency: 'R$'}}</td>
+                        <td>{{ servico.data }}</td>
+                        <td>
+                            <button class="btn btn-danger espacamento-botao" data-toggle="tooltip" data-placement="top" title="Excluir" type="submit" data-toggle="modal" data-target="#modalDelecao" (click)="preparaDelecao(servico)">
+                                <i class="fa fa-user-minus"></i>
+                            </button>
+
+                            <button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Editar" type="submit" routerLink="/servicos/form/{{ servico.id }}">
+                              <i class="fa fa-edit"></i> 
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="modalDelecao" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Atenção
+                </div>
+                <div class="modal-body" *ngIf="servicoSelecionado">
+                    Você tem certeza que deseja deletar o serviço: {{ servicoSelecionado.descricao }}?
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger" (click)="deletarServico(this.servico.id)" data-dismiss="modal">Sim</button>
+                    <button class="btn btn-primary" data-dismiss="modal">Não</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
